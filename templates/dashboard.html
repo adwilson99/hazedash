@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="last-date">Air quality index readings for PETALING JAYA on {{ data[-1].Date }}</div>
+    </div>
+    <div class="row">
+        <div class="haze-container">
+            <div class="haze-number {{ haze_color(data[-4].HazeNumber) }}">{{ data[-4].HazeNumber }}</div>
+            <div class="times">{{ data[-4].Hour }}:17</div>
+        </div>
+        <div class="haze-container">
+            <div class="haze-number {{ haze_color(data[-3].HazeNumber) }}">{{ data[-3].HazeNumber }}</div>
+            <div class="times">{{ data[-3].Hour }}:17</div>
+        </div>
+        <div class="haze-container">
+            <div class="haze-number {{ haze_color(data[-2].HazeNumber) }}">{{ data[-2].HazeNumber }}</div>
+            <div class="times">{{ data[-2].Hour }}:17</div>
+        </div>
+        <div class="haze-container">
+            <div class="haze-number {{ haze_color(data[-1].HazeNumber) }}">{{ data[-1].HazeNumber }}</div>
+            <div class="times">{{ data[-1].Hour }}:17</div>
+        </div>
+    </div>
+    <div class="message-box">
+        <p>{{ data[-1].Message | safe }}</p>
+    </div>
+</body>
+</html>
+
